@@ -3,3 +3,4 @@ bin/
 .METAINFO
 .NYCKBUILD
 .ypkg/
+.ypkg2/
