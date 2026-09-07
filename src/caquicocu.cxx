@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 
-#define VERSION "1.1.0"
+#define VERSION "1.2.0"
 #define DATE "2026-05-02"
 #define USAGE "usage: caquicocu [n]"
 
@@ -35,9 +35,9 @@ enum class Temps {
     plus_que_parfait,
     futur_anterieur,
     passe_anterieur,
-    /*
     conditionnel_present,
     conditionnel_passe,
+    /*
     sub_present,
     sub_passe,
     */
@@ -289,6 +289,24 @@ int get_regex(Verbe verb, Temps tense, Pronom pronoun, std::regex* re)
                 RE("\\s*e(u\\^|û)tes (e'|é)t(e'|é)\\s*"),
                 RE("\\s*eurent (e'|é)t(e'|é)\\s*")
             },
+            // conditionnel_present,
+            {
+                RE("\\s*serais\\s*"),
+                RE("\\s*serais\\s*"),
+                RE("\\s*serait\\s*"),
+                RE("\\s*serions\\s*"),
+                RE("\\s*seriez\\s*"),
+                RE("\\s*seraient\\s*")
+            },
+            // conditionnel_passe,
+            {
+                RE("\\s*aurais (e'|é)t(e'|é)\\s*"),
+                RE("\\s*aurais (e'|é)t(e'|é)\\s*"),
+                RE("\\s*aurait (e'|é)t(e'|é)\\s*"),
+                RE("\\s*aurions (e'|é)t(e'|é)\\s*"),
+                RE("\\s*auriez (e'|é)t(e'|é)\\s*"),
+                RE("\\s*auraient (e'|é)t(e'|é)\\s*")
+            },
         },
         // avoir
         {
@@ -364,6 +382,24 @@ int get_regex(Verbe verb, Temps tense, Pronom pronoun, std::regex* re)
                 RE("\\s*e(u\\^|û)tes eu\\s*"),
                 RE("\\s*eurent eu\\s*")
             },
+            // conditionnel_present,
+            {
+                RE("\\s*aurais\\s*"),
+                RE("\\s*aurais\\s*"),
+                RE("\\s*aurait\\s*"),
+                RE("\\s*aurions\\s*"),
+                RE("\\s*auriez\\s*"),
+                RE("\\s*auraient\\s*")
+            },
+            // conditionnel_passe,
+            {
+                RE("\\s*aurais eu\\s*"),
+                RE("\\s*aurais eu\\s*"),
+                RE("\\s*aurait eu\\s*"),
+                RE("\\s*aurions eu\\s*"),
+                RE("\\s*auriez eu\\s*"),
+                RE("\\s*auraient eu\\s*")
+            },
         },
         // chanter 
         {
@@ -438,6 +474,24 @@ int get_regex(Verbe verb, Temps tense, Pronom pronoun, std::regex* re)
                 RE("\\s*e(u\\^|û)mes chant(e'|é)\\s*"),
                 RE("\\s*e(u\\^|û)tes chant(e'|é)\\s*"),
                 RE("\\s*eurent chant(e'|é)\\s*")
+            },
+            // conditionnel_present,
+            {
+                RE("\\s*chanterais\\s*"),
+                RE("\\s*chanterais\\s*"),
+                RE("\\s*chanterait\\s*"),
+                RE("\\s*chanterions\\s*"),
+                RE("\\s*chanteriez\\s*"),
+                RE("\\s*chanteraient\\s*")
+            },
+            // conditionnel_passe,
+            {
+                RE("\\s*aurais chant(e'|é)\\s*"),
+                RE("\\s*aurais chant(e'|é)\\s*"),
+                RE("\\s*aurait chant(e'|é)\\s*"),
+                RE("\\s*aurions chant(e'|é)\\s*"),
+                RE("\\s*auriez chant(e'|é)\\s*"),
+                RE("\\s*auraient chant(e'|é)\\s*")
             },
         },
     };
@@ -531,6 +585,24 @@ std::string get_answer(Verbe verb, Temps tense, Pronom pronoun)
                 "eûtes été",
                 "eurent été"
             },
+            // conditionnel_present,
+            {
+                "serais",
+                "serais",
+                "serait",
+                "serions",
+                "seriez",
+                "seraient"
+            },
+            // conditionnel_passe,
+            {
+                "aurais été",
+                "aurais été",
+                "aurait été",
+                "aurions été",
+                "auriez été",
+                "auraient été"
+            },
         },
         // avoir
         {
@@ -605,6 +677,24 @@ std::string get_answer(Verbe verb, Temps tense, Pronom pronoun)
                 "eûmes eu",
                 "eûtes eu",
                 "eurent eu"
+            },
+            // conditionnel_present
+            {
+                "aurais",
+                "aurais",
+                "aurait",
+                "aurions",
+                "auriez",
+                "auraient"
+            },
+            // conditionnel_passe
+            {
+                "aurais eu",
+                "aurais eu",
+                "aurait eu",
+                "aurions eu",
+                "auriez eu",
+                "auraient eu"
             },
         },
         // chanter 
@@ -681,6 +771,24 @@ std::string get_answer(Verbe verb, Temps tense, Pronom pronoun)
                 "eûtes chanté",
                 "eurent chanté"
             },
+            // conditionnel_present
+            {
+                "chanterais",
+                "chanterais",
+                "chanterait",
+                "chanterions",
+                "chanteriez",
+                "chanteraient"
+            },
+            // conditionnel_passe
+            {
+                "aurais chanté",
+                "aurais chanté",
+                "aurait chanté",
+                "aurions chanté",
+                "auriez chanté",
+                "auraient chanté"
+            },
         },
     };
 
@@ -754,10 +862,10 @@ std::string enum2str(Temps t)
     case T::plus_que_parfait:       return "plus-que-parfait";
     case T::futur_anterieur:        return "futur antérieur";
     case T::passe_anterieur:        return "passé antérieur";
-    /*
-
     case T::conditionnel_present:   return "conditionnel présent";
     case T::conditionnel_passe:     return "conditionnel passé";
+
+    /*
     case T::sub_present:            return "subjonctif présent";
     case T::sub_passe:              return "subjonctif passé";
     */
