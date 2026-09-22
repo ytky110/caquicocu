@@ -1,6 +1,6 @@
-bin/caquicocu: src/caquicocu.cxx
+bin/caquicocu: src/*.cxx include/*
 	mkdir -p bin
-	c++ $^ -o $@
+	c++ src/*.cxx -o $@ -I include
 
 .PHONY: clean
 
