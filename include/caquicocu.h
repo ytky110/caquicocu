@@ -1,8 +1,8 @@
 #ifndef CQCC_H_
 #define CQCC_H_
 
-#define VERSION "1.3.0"
-#define DATE "2026-09-22"
+#define VERSION "1.4.0"
+#define DATE "2026-09-23"
 #define USAGE "usage: caquicocu [n]"
 
 #define DEFAULT_N (5)
@@ -11,14 +11,16 @@
 #include <string>
 
 enum class Verbe {
-    null = -1,
-
+    aller,
     avoir,
     chanter,
+    dire,
     etre,
     faire,
 
     count,
+    null,
+
 };
 
 enum class Temps {

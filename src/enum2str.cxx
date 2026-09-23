@@ -5,8 +5,10 @@ std::string enum2str(Verbe v)
     using V = Verbe;
 
     switch (v) {
+    case V::aller:      return "aller";
     case V::avoir:      return "avoir";
     case V::chanter:    return "chanter";
+    case V::dire:       return "dire";
     case V::etre:       return "être";
     case V::faire:      return "faire";
     default:            return "";

@@ -204,7 +204,8 @@ void guide()
 {
     cout <<
         "Input the answer without the Pronoun in lowercase.\n"
-        "You can input é as e', ç as c', ê as e^ and è as e` (and other)"
+        "You can input é as e', ç as c', ê as e^ and è as e` (and other)\n"
+        "If the auxiliary is être, please input in masculine singular."
         << endl;
 }
 
