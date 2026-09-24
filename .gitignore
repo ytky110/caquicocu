@@ -1,8 +1,8 @@
 bin/
+pkg/
 
 mktab/*.cxx
 
 .METAINFO
 .NYCKBUILD
 .ypkg/
-.ypkg2/
