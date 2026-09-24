@@ -1,4 +1,6 @@
-bin/caquicocu: src/*.cxx include/*
+TARGET = bin/caquicocu
+
+$(TARGET): src/*.cxx include/*
 	mkdir -p bin
 	c++ src/*.cxx -o $@ -I include
 
