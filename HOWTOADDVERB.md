@@ -25,7 +25,7 @@ conditionnel_passe,
 
 ## 2. Convert into C++ table
 
-Then, use the execute_all.sh from mktab/ and
+Then, use the execute_all.sh at mktab/ and
 you will get the table converted into C++ array at `mktab/re.cxx` and `mktab/ans.cxx`.
 
 The `re.cxx` is for `get_regex.cxx`, and `ans.cxx` for `get_answer.cxx`.

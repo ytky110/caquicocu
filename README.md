@@ -20,6 +20,7 @@ verbes:
 - dire
 - être
 - faire
+- voir
 
 ![1.2.0](screenshots/caquicocu-1.2.0.png)
 

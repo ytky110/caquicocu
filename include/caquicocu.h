@@ -1,7 +1,7 @@
 #ifndef CQCC_H_
 #define CQCC_H_
 
-#define VERSION "1.4.0"
+#define VERSION "1.5.0"
 #define DATE "2026-09-23"
 #define USAGE "usage: caquicocu [n]"
 
@@ -17,6 +17,7 @@ enum class Verbe {
     dire,
     etre,
     faire,
+    voir,
 
     count,
     null,

@@ -5,4 +5,4 @@ bin/caquicocu: src/*.cxx include/*
 .PHONY: clean
 
 clean:
-	rm -f bin/*
+	rm -rf bin

@@ -11,6 +11,7 @@ std::string enum2str(Verbe v)
     case V::dire:       return "dire";
     case V::etre:       return "être";
     case V::faire:      return "faire";
+    case V::voir:       return "voir";
     default:            return "";
     }
 }
