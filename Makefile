@@ -6,3 +6,4 @@ bin/caquicocu: src/*.cxx include/*
 
 clean:
 	rm -rf bin
+	rm -rf mktab/*.cxx
